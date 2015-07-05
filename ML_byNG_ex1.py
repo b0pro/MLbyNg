@@ -8,14 +8,14 @@ import matplotlib.pyplot as plt
 
 def computeCost(X,y,theta):
     m = y.__len__()
-    J = np.sum((np.dot(X,theta) - np.reshape(y,(m,1)))**2)/2/m
+    J = np.sum((np.dot(X,theta) - np.reshape(y,(m,1)))**2)/2/m   # J(ø) = 1/2m ∑(hø(xi))-yi)²
     return J
 
 
 def gradientDescent(X, y, theta, alpha, iterations):
     Jhis = np.zeros([iteration,1])
     m = y.__len__()
-    for i in range(iterations):
+    for i in range(iterations):             #øj = øj - alpha * 1/m * ∑(hø(xi) - yi)*xi   hø = ø™x
         theta0 = theta[0] - alpha * np.sum(np.dot(X,theta)-np.reshape(y,(m,1)))/m
         theta1 = theta[1] - alpha * np.sum((np.dot(X,theta) - np.reshape(y,(m,1)))*np.reshape(X[:,1],(m,1)))/m
         theta = np.array([theta0,theta1])
